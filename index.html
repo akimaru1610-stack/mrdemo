@@ -25,15 +25,15 @@
     <script>
         // カメラにアクセスする命令
         navigator.mediaDevices.getUserMedia({ 
-            video: { facingMode: "environment" } // 背面カメラを指定
+            video: { facingMode: "environment" } 
         })
         .then(stream => {
-            // 左右両方のビデオタグにカメラ映像を流し込む
             document.getElementById('left').srcObject = stream;
             document.getElementById('right').srcObject = stream;
         })
         .catch(err => {
-            alert("カメラが起動できません: " + err);
+            // エラーの名前を表示して原因を突き止める
+            alert("エラー名: " + err.name + "\nメッセージ: " + err.message);
         });
     </script>
 </body>
